@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link, useLocation  } from 'react-router-dom'
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 const Sidebar = () => {
   const location = useLocation();
   const isActive = (path) => {
-    return location.pathname === path ? 'active' : '';
+    return location.pathname === path ? "active" : "";
   };
   return (
     <>
@@ -11,52 +11,123 @@ const Sidebar = () => {
         <ul className="menu-slide">
           <li className={isActive("/analytic")}>
             <Link to={"/analytic"} className title>
-              <i><svg id="icon-home" className="feather feather-home" strokeLinejoin="round" strokeLinecap="round" strokeWidth={2} stroke="currentColor" fill="none" viewBox="0 0 24 24" height={14} width={14} xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" /></svg></i>Dashboard
+              <i>
+                <svg
+                  id="icon-home"
+                  className="feather feather-home"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  height={14}
+                  width={14}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+              </i>
+              Dashboard
             </Link>
           </li>
 
           <li className={isActive("/user")}>
             <Link to={"/user"} className title>
-              <i><svg id="ab1" className="feather feather-users" strokeLinejoin="round" strokeLinecap="round" strokeWidth={2} stroke="currentColor" fill="none" viewBox="0 0 24 24" height={14} width={14} xmlns="http://www.w3.org/2000/svg">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle r={4} cy={7} cx={9} />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></i>
+              <i>
+                <svg
+                  id="ab1"
+                  className="feather feather-users"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  height={14}
+                  width={14}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle r={4} cy={7} cx={9} />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </i>
               User Management
             </Link>
-
           </li>
           <li className={isActive("/couponList")}>
-
             <Link to={"/couponList"} className title>
-              <i><svg id="ab7" className="feather feather-zap" strokeLinejoin="round" strokeLinecap="round" strokeWidth={2} stroke="currentColor" fill="none" viewBox="0 0 24 24" height={14} width={14} xmlns="http://www.w3.org/2000/svg">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg></i>
-                Coupon List
+              <i>
+                <svg
+                  id="ab7"
+                  className="feather feather-zap"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  height={14}
+                  width={14}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </i>
+              Coupon List
             </Link>
-
           </li>
           <li className={isActive("/scratchList")}>
-
-            <Link to={"/scratchList"} title>
-              <i><svg id="ab8" className="feather feather-file" strokeLinejoin="round" strokeLinecap="round" strokeWidth={2} stroke="currentColor" fill="none" viewBox="0 0 24 24" height={14} width={14} xmlns="http://www.w3.org/2000/svg">
-                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-                <polyline points="13 2 13 9 20 9" /></svg></i>
-                Scratch List
+            <Link to={"/scratchList"} title="Scratch List">
+              <i>
+                <svg
+                  className="feather feather-scratch-card"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  height={14}
+                  width={14}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M2 3h20v18H2z" />
+                  <path d="M2 6h20" />
+                  <path d="M6 18h12" />
+                </svg>
+              </i>
+              Scratch List
             </Link>
-
           </li>
-          <li className={isActive("/transactionList")}>
 
-            <Link to={"/transactionList"} title>
-              <i><svg id="ab8" className="feather feather-file" strokeLinejoin="round" strokeLinecap="round" strokeWidth={2} stroke="currentColor" fill="none" viewBox="0 0 24 24" height={14} width={14} xmlns="http://www.w3.org/2000/svg">
-                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-                <polyline points="13 2 13 9 20 9" /></svg></i>
-              TransactionList
+          <li className={isActive("/orderCouponList")}>
+            <Link to={"/orderCouponList"} title="Order Coupon List">
+              <i>
+                <svg
+                  className="feather feather-shopping-cart"
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  height={14}
+                  width={14}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M6 6h15l-1 9H7L6 6z" />
+                  <circle cx="10" cy="20" r="2" />
+                  <circle cx="18" cy="20" r="2" />
+                </svg>
+              </i>
+              Order Coupon List
             </Link>
-
           </li>
+
           {/* <li className={isActive("/blog")}>
             <Link to={"/blog"}>
               <i>
@@ -133,11 +204,10 @@ const Sidebar = () => {
               About Us
             </Link>
           </li>
-
         </ul>
       </nav>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

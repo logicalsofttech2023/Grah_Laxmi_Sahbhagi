@@ -24,7 +24,7 @@ import AddScratch from "./Components/page/AddScratch";
 import Sideslide from "./Components/page/Sideslide";
 import ContactUs from "./Components/page/ContactUs";
 import AboutUs from "./Components/page/AboutUs";
-import TransactionList from "./Components/page/TransactionList";
+import OrderCouponList from "./Components/page/OrderCouponList";
 import { useEffect } from "react";
 
 function App() {
@@ -69,7 +69,7 @@ function App() {
           <Route path="/addScratch" element={isLoggedIn ? <AddScratch /> : <Navigate to="/login" />} />
           <Route path="/contactUs" element={isLoggedIn ? <ContactUs /> : <Navigate to="/login" />} />
           <Route path="/aboutUs" element={isLoggedIn ? <AboutUs /> : <Navigate to="/login" />} />
-          <Route path="/transactionList" element={isLoggedIn ? <TransactionList /> : <Navigate to="/login" />} />
+          <Route path="/orderCouponList" element={isLoggedIn ? <OrderCouponList /> : <Navigate to="/login" />} />
 
           {/* Login Route */}
           <Route path="/login" element={isLoggedIn ? <Navigate to="/" /> : <Login />} />

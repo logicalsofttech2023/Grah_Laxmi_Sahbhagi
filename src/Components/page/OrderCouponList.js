@@ -16,7 +16,7 @@ const TransactionList = () => {
       return;
     }
     axios
-      .get(`${base_url}/transaction_list`, {
+      .get(`${base_url}/orderCouponList`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -42,7 +42,7 @@ const TransactionList = () => {
           <div className="panel-content">
             <h4 className="mt-3 mb-3 text-capitalize d-flex align-items-center gap-2">
               <img width={20} src="assets/businessman.png" alt="" />
-              TRANSACTION LIST
+              ORDER COUPON LIST
             </h4>
             <div className="col-md-12">
               <div className="card">

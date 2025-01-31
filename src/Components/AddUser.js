@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, Grid, Box, Typography } from "@mui/material";
+import { TextField, Button, Grid, Box, Typography, InputAdornment } from "@mui/material";
 import axios from "axios";
 import { Snackbar, Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,7 @@ const AddUser = () => {
   const [name, setName] = useState("");
   const [dob, setDOB] = useState("");
   const [image, setImage] = useState(null);
+  const [imageName, setImageName] = useState(""); // Store the file name
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -22,7 +23,13 @@ const AddUser = () => {
 
   const handleInputChange = (setter) => (e) => setter(e.target.value);
 
-  const handleFileChange = (e) => setImage(e.target.files[0]);
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      setImageName(file.name); // Set the file name to display
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,6 +74,7 @@ const AddUser = () => {
         setName("");
         setDOB("");
         setImage(null);
+        setImageName(""); // Reset the file name after successful submission
       }
     } catch (err) {
       setError("Error while adding user. Please try again.");
@@ -95,7 +103,38 @@ const AddUser = () => {
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                   <TextField
-                    label="email"
+                    label="Profile Image"
+                    variant="outlined"
+                    fullWidth
+                    required
+                    value={imageName}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <input
+                            accept="image/*"
+                            type="file"
+                            onChange={handleFileChange}
+                            style={{ display: "none" }}
+                            id="file-upload"
+                          />
+                          <label htmlFor="file-upload">
+                            <Button variant="contained" component="span">
+                              Choose Image
+                            </Button>
+                          </label>
+                        </InputAdornment>
+                      ),
+                    }}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    disabled
+                  />
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <TextField
+                    label="Email"
                     variant="outlined"
                     fullWidth
                     required
@@ -105,7 +144,7 @@ const AddUser = () => {
                 </Grid>
                 <Grid item xs={12} md={6}>
                   <TextField
-                    label="password"
+                    label="Password"
                     variant="outlined"
                     fullWidth
                     required
@@ -148,14 +187,7 @@ const AddUser = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={12} md={6}>
-                  <input
-                    accept="image/*"
-                    type="file"
-                    onChange={handleFileChange}
-                    required
-                  />
-                </Grid>
+
                 <Grid item xs={12}>
                   {error && <Typography color="error">{error}</Typography>}
                 </Grid>
