@@ -405,23 +405,25 @@ const Analytics1 = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response);
       setCountData(response.data.data);
-      const postsData = response.data.data.formattedPosts.map(
-        (item) => item.postCount
-      );
-      const reelsData = response.data.data.formattedPosts.map(
-        (item) => item.realsCount
-      );
-      setChartData({
-        series: [
-          { name: "Post", data: postsData },
-          { name: "Reels", data: reelsData },
-        ],
-      });
+      console.log(countData);
+      
+      // setCountData(response.data.data);
+      // const postsData = response.data.data.formattedPosts.map(
+      //   (item) => item.postCount
+      // );
+      // const reelsData = response.data.data.formattedPosts.map(
+      //   (item) => item.realsCount
+      // );
+      // setChartData({
+      //   series: [
+      //     { name: "Post", data: postsData },
+      //     { name: "Reels", data: reelsData },
+      //   ],
+      // });
     } catch (error) {
       console.error("Error fetching user list:", error);
-      if (error.response.data.message == "Token has expired") {
+      if (error.response.data.message == "jwt expired") {
         localStorage.removeItem("authToken");
         navigate("/login")
       }
@@ -501,7 +503,7 @@ const Analytics1 = () => {
                     <div className="w-chart-section">
                       <div className="w-detail">
                         <p className="w-title">Total Users</p>
-                        <p className="w-stats">{countData.totalusers}</p>
+                        <p className="w-stats">{countData.users}</p>
                         <span>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -528,11 +530,11 @@ const Analytics1 = () => {
 
                 {/* Total Orders Card */}
                 <div className="col-lg-4 col-md-6">
-                  <Link to={"/page"}>
+                  <Link to={"/couponList"}>
                     <div className="w-chart-section">
                       <div className="w-detail">
-                        <p className="w-title">Total Page</p>
-                        <p className="w-stats">{countData.totalpages}</p>
+                        <p className="w-title">Total Coupon</p>
+                        <p className="w-stats">{countData.coupons}</p>
                         <span>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -563,11 +565,11 @@ const Analytics1 = () => {
                 </div>
                 {/* Total Downloads Card */}
                 <div className="col-lg-4 col-md-12">
-                  <Link to={"/community"}>
+                  <Link to={"/orderCouponList"}>
                     <div className="w-chart-section">
                       <div className="w-detail">
-                        <p className="w-title">Total Community</p>
-                        <p className="w-stats">{countData.totalcommunities}</p>
+                        <p className="w-title">Total Orders</p>
+                        <p className="w-stats">{countData.orders}</p>
                         <span>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -592,7 +594,7 @@ const Analytics1 = () => {
                   </Link>
                 </div>
 
-                <div className="col-lg-4 col-md-12 mt-3">
+                {/* <div className="col-lg-4 col-md-12 mt-3">
                   <div className="w-chart-section">
                     <div className="w-detail">
                       <p className="w-title">Total Reels</p>
@@ -667,7 +669,7 @@ const Analytics1 = () => {
                       </span>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* revenue */}
               <div className="row merged20 mb-4">
@@ -890,8 +892,8 @@ const Analytics1 = () => {
                   </div>
                 </div>
               </div> */}
-              <div className="row merged20">
-                {/* <div className="col-lg-3 col-md-6">
+              {/* <div className="row merged20">
+                <div className="col-lg-3 col-md-6">
                   <div className="d-widget" style={{ position: 'relative' }}>
                     <div className="d-widget-title">
                       <h5>Monthly Product Sales</h5>
@@ -900,7 +902,7 @@ const Analytics1 = () => {
                       <ReactApexChart options={options} series={series} type="donut" height={360} />
                     </div>
                   </div>
-                </div> */}
+                </div>
 
                 <div className="col-lg-12 col-md-6">
                   <div
@@ -922,7 +924,7 @@ const Analytics1 = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

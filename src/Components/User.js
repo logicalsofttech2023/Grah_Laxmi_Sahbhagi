@@ -107,9 +107,11 @@ const User = () => {
                         <th>USER NAME</th>
                         <th>MOBILE NUMBER</th>
                         <th className="text-center">EMAIL-ID</th>
-                        <th>STATUS</th>
-                        <th>ACTIVATE&DEACTIVATE</th>
-                        <th className="text-center">ACTION</th>
+                        <th className="text-center">DOB</th>
+                        <th className="text-center">COINS</th>
+                        {/* <th>STATUS</th>
+                        <th>ACTIVATE&DEACTIVATE</th> */}
+                        {/* <th className="text-center">ACTION</th> */}
                         {/* <th className="text-center">CONTROLS</th> */}
                       </tr>
                     </thead>
@@ -136,8 +138,10 @@ const User = () => {
                             </td>
                             <td className="text-center">{data.phone}</td>
                             <td className="text-center">{data.email}</td>
+                            <td className="text-center">{data.dob}</td>
+                            <td className="text-center">{data.coins}</td>
 
-                            <td className="text-center">
+                            {/* <td className="text-center">
                               {data.userActStatus === true ? (
                                 <label className="badge badge-danger">
                                   ACTIVE
@@ -170,7 +174,7 @@ const User = () => {
                                   UNBLOCKED
                                 </label>
                               )}
-                            </td>
+                            </td> */}
                             <td>
                               <div className="d-flex gap-10 justify-content-center">
                                 {/* <span
@@ -186,13 +190,13 @@ const User = () => {
                               title="Delete">
                               <i className="fa fa-trash-o" aria-hidden="true" />
                             </a> */}
-                                <Link
+                                {/* <Link
                                   // to={`/profiles/${data._id}`}
                                   title="View"
                                   className="btn btn-outline-info btn-sm square-btn"
                                 >
                                   <i class="fa fa-eye" aria-hidden="true"></i>
-                                </Link>
+                                </Link> */}
                               </div>
                             </td>
                           </tr>

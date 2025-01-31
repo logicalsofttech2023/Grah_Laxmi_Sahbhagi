@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { TextField, Button, Grid, Box, Typography, InputAdornment } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Grid,
+  Box,
+  Typography,
+  InputAdornment,
+} from "@mui/material";
 import axios from "axios";
 import { Snackbar, Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +19,7 @@ const AddUser = () => {
   const [dob, setDOB] = useState("");
   const [image, setImage] = useState(null);
   const [imageName, setImageName] = useState(""); // Store the file name
+  const [imagePreview, setImagePreview] = useState(""); // To store the image preview
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -28,7 +36,14 @@ const AddUser = () => {
     if (file) {
       setImage(file);
       setImageName(file.name); // Set the file name to display
+      setImagePreview(URL.createObjectURL(file)); // Create image preview
     }
+  };
+
+  const handleClearImage = () => {
+    setImage(null);
+    setImageName("");
+    setImagePreview(""); // Clear the preview
   };
 
   const handleSubmit = async (e) => {
@@ -74,7 +89,8 @@ const AddUser = () => {
         setName("");
         setDOB("");
         setImage(null);
-        setImageName(""); // Reset the file name after successful submission
+        setImageName("");
+        setImagePreview("");
       }
     } catch (err) {
       setError("Error while adding user. Please try again.");
@@ -101,7 +117,31 @@ const AddUser = () => {
             </h4>
             <form onSubmit={handleSubmit}>
               <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6}>
+                  {imagePreview && (
+                    <Box
+                      display="flex"
+                      justifyContent="start"
+                      alignItems="center"
+                      ml={1}
+                      style={{ position: "relative" }}
+                    >
+                      <img
+                        src={imagePreview}
+                        alt="Preview"
+                        style={{
+                          maxWidth: "50px", // Reduced image size
+                          height: "auto",
+                          borderRadius: "8px",
+                          border: "1px solid #ddd",
+                          objectFit: "cover", // Ensures the image fits nicely without stretching
+                        }}
+                      />
+                       
+                    </Box>
+                  )}
+                </Grid>
+                <Grid item xs={12} md={12}>
                   <TextField
                     label="Profile Image"
                     variant="outlined"

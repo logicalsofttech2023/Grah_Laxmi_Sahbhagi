@@ -67,7 +67,7 @@ const ScratchList = () => {
                         <th className="pl-xl-5">SR NO.</th>
                         <th>Coins</th>
                         <th>Date</th>
-                        <th>CreatedAt</th>
+                        {/* <th>CreatedAt</th> */}
                       </tr>
                     </thead>
 
@@ -84,7 +84,7 @@ const ScratchList = () => {
                             <td className="text-start">{index + 1}</td>
                             <td className="text-start">{data.coins}</td>
                             <td className="text-start">{data.date}</td>
-                            <td className="text-start">{new Date(data.createdAt).toDateString()}</td>
+                            {/* <td className="text-start">{new Date(data.createdAt).toDateString()}</td> */}
                           </tr>
                         </tbody>
                       ))

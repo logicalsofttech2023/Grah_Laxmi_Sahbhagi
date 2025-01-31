@@ -22,7 +22,9 @@ const TransactionList = () => {
         },
       })
       .then((response) => {
-        if (response.data.result) {
+        console.log(response);
+        
+        if (response.status === 200) {
           setTransactionList(response.data.data);
         }
       })
@@ -57,10 +59,9 @@ const TransactionList = () => {
                         <th className="pl-xl-5">SR NO.</th>
                         <th>USER NAME</th>
                         <th>USER NUMBER</th>
-                        <th className="text-center">TRANSACTION ID</th>
-                        <th className="text-center">AMOUNT</th>
-                        <th className="text-center">TYPE</th>
-                        <th className="text-center">PAYMENT STATUS</th>
+                        <th className="text-center">COUPON TITLE</th>
+                        <th className="text-center">COUPON DESCRIPTION</th>
+                        <th className="text-center">COINS</th>
                         <th className="text-center">DATE</th>
                         
                       </tr>
@@ -76,33 +77,15 @@ const TransactionList = () => {
                         <tbody key={index}>
                           <tr>
                             <td className="text-center">{index + 1}</td>
-                            <td className="text-center">
-                              <Link>{data.userId.userName}</Link>
-                            </td>
-                            <td className="text-center">{data.userId.mobileNumber}</td>
+                            
+                            <td className="text-center">{data.userId.personName}</td>
 
                             <td className="text-center">
-                              {data.transactionId}
+                              {data.userId.phone}
                             </td>
-                            <td className="text-center">₹{data.amount}</td>
-                            <td className="text-center">{data.type}</td>
-                            <td className="text-center">
-                              {data.status ? (
-                                <label
-                                  style={{ cursor: "pointer" }}
-                                  className="badge badge-success"
-                                >
-                                  Success
-                                </label>
-                              ) : (
-                                <label
-                                  style={{ cursor: "pointer" }}
-                                  className="badge badge-danger"
-                                >
-                                  Failed
-                                </label>
-                              )}
-                            </td>
+                            <td className="text-center">{data.couponId.title}</td>
+                            <td className="text-center">{data.couponId.description}</td>
+                            <td className="text-center">{data.coins}</td>
                             <td className="text-center">
                               {new Date(data.createdAt).toLocaleString()}
                             </td>

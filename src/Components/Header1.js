@@ -194,7 +194,7 @@ const Header1 = () => {
               </a>
               <span />
             </li> */}
-            <li>
+            {/* <li>
               <a
                 className="mesg-notif"
                 href="#"
@@ -223,7 +223,7 @@ const Header1 = () => {
                   </svg>
                 </i>
               </a>
-              {/* <a
+              <a
                 className="mesg-notif"
                 href="#"
                 title="Notifications"
@@ -245,9 +245,9 @@ const Header1 = () => {
                     <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                   </svg>
                 </i>
-              </a> */}
+              </a>
               <span />
-            </li>
+            </li> */}
             {/* <li>
               <a
                 className="create"

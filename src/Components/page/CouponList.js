@@ -101,7 +101,7 @@ const CouponList = () => {
                         <th>Coupon image</th>
                         <th>Coupon Title</th>
                         <th>Coupon Description</th>
-                        <th>MRPCoins</th>
+                        <th>Coupon Coins Price</th>
                         <th className="text-center">Sale Coins</th>
                         <th>Discount(%)</th>
                         <th>Expire Date</th>
